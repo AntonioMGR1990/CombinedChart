@@ -1,6 +1,9 @@
 package com.example.usuario.combinedchart;
 
+import android.view.View;
+
 import com.github.mikephil.charting.charts.CombinedChart;
+import com.github.mikephil.charting.data.CombinedData;
 
 import java.util.Date;
 
@@ -8,24 +11,25 @@ import java.util.Date;
  * Created by Usuario on 03/05/2018.
  */
 
-class chartSingleton {
+public class chartSingleton {
     private static final chartSingleton ourInstance = new chartSingleton();
 
-    private CombinedChart lastChart;
+    private CombinedData lastChart;
+    private View grafica;
     private Date fecha;
 
-    static chartSingleton getInstance() {
+    public static chartSingleton getInstance() {
         return ourInstance;
     }
 
     private chartSingleton() {
     }
 
-    public CombinedChart getLastChart() {
+    public CombinedData getLastChart() {
         return lastChart;
     }
 
-    public void setLastChart(CombinedChart lastChart) {
+    public void setLastChart(CombinedData lastChart) {
         this.lastChart = lastChart;
     }
 
@@ -35,6 +39,14 @@ class chartSingleton {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    public View getGrafica() {
+        return grafica;
+    }
+
+    public void setGrafica(View grafica) {
+        this.grafica = grafica;
     }
 
     @Override
